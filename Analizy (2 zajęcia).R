@@ -1,10 +1,18 @@
+# Instalacja pakietów
+install.packages("dplyr")
+install.packages("psych")
+install.packages("lavaan")
+install.packages("corrplot")
+install.packages("GPArotation")
+install.packages("ggplot2")
+install.packages("semTools")
+
+
 library('dplyr')
 library('psych')
 library('lavaan')
 library('corrplot')
 library('GPArotation')
-library('lavaan')
-library('semPlot')
 library('ggplot2')
 library('semTools')
 
