@@ -1,0 +1,26 @@
+# Function to recode text responses to numerical values
+recode_responses <- function(data, response_map) {
+  # Apply the mapping to each element in the data frame
+  data_recoded <- data
+  for (col in names(data_recoded)) {
+    data_recoded[[col]] <- as.numeric(factor(data_recoded[[col]], levels = names(response_map), labels = response_map))
+  }
+  return(data_recoded)
+}
+
+# Example Usage
+# Define your text response mapping
+response_map_agree <- c("Strongly disagree" = 1, "Disagree" = 2, "Neutral" = 3, "Agree" = 4, "Strongly agree" = 5)
+
+# Sample data (each column is a survey item)
+survey_data <- data.frame(
+  Item1 = c("Agree", "Neutral", "Disagree"),
+  Item2 = c("Strongly agree", "Agree", "Neutral"),
+  Item3 = c("Disagree", "Strongly disagree", "Agree")
+)
+
+# Recode the responses
+recoded_data <- recode_responses(survey_data, response_map_agree)
+
+# View the recoded data
+print(recoded_data)
